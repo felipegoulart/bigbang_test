@@ -22,6 +22,11 @@ module.exports = {
   extends: [
     // Base ESLint recommended rules
     // 'eslint:recommended',
+    'plugin:vue/vue3-essential',
+    'plugin:vue/vue3-recommended',
+    'plugin:vue/vue3-strongly-recommended',
+    'plugin:quasar/recommended',
+    'standard',
 
     // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#usage
     // ESLint typescript rules
@@ -35,7 +40,7 @@ module.exports = {
     // 'plugin:vue/vue3-recommended', // Priority C: Recommended (Minimizing Arbitrary Choices and Cognitive Overhead)
 
     'standard'
-    
+
   ],
 
   plugins: [
@@ -45,7 +50,7 @@ module.exports = {
     // https://eslint.vuejs.org/user-guide/#why-doesn-t-it-work-on-vue-files
     // required to lint *.vue files
     'vue'
-    
+
   ],
 
   globals: {
@@ -63,40 +68,140 @@ module.exports = {
 
   // add your custom rules here
   rules: {
-    
-    // allow async-await
-    'generator-star-spacing': 'off',
-    // allow paren-less arrow functions
-    'arrow-parens': 'off',
-    'one-var': 'off',
-    'no-void': 'off',
+    // Global
+    'max-len': [
+      'error',
+      {
+        code: 120,
+        tabWidth: 2,
+        ignoreComments: true,
+        ignoreUrls: true,
+        ignoreStrings: true,
+        ignoreTemplateLiterals: true,
+        ignoreRegExpLiterals: true
+      }
+    ],
+    'arrow-parens': ['error', 'as-needed'],
+    'one-var': ['error', 'never'],
     'multiline-ternary': 'off',
+    'no-void': 'off',
 
-    'import/first': 'off',
-    'import/namespace': 'error',
+    // Import
     'import/default': 'error',
     'import/export': 'error',
     'import/extensions': 'off',
-    'import/no-unresolved': 'off',
+    'import/first': 'off',
+    'import/named': 'error',
+    'import/namespace': 'error',
     'import/no-extraneous-dependencies': 'off',
+    'import/no-unresolved': 'off',
 
-    // The core 'import/named' rules
-    // does not work with type definitions
-    'import/named': 'off',
-    
+    // Promise
     'prefer-promise-reject-errors': 'off',
 
-    quotes: ['warn', 'single', { avoidEscape: true }],
+    // Vue extra rules
+    'vue/singleline-html-element-content-newline': [
+      'error',
+      {
+        ignoreWhenNoAttributes: true,
+        ignoreWhenEmpty: true,
+        ignores: []
+      }
+    ],
+    'vue/multiline-html-element-content-newline': [
+      'error',
+      {
+        ignoreWhenEmpty: true,
+        allowEmptyLines: false,
+        ignores: []
+      }
+    ],
+    'vue/component-name-in-template-casing': [
+      'error',
+      'kebab-case',
+      {
+        registeredComponentsOnly: false,
+        ignores: []
+      }
+    ],
+    'vue/attributes-order': ['error', { alphabetical: true }],
+    'vue/block-spacing': ['error', 'always'],
+    'vue/no-reserved-component-names': ['error'],
+    'vue/static-class-names-order': ['error'],
+    'vue/v-slot-style': ['error', 'shorthand'],
+    'vue/object-curly-spacing': ['error', 'always'],
+    'vue/key-spacing': ['error', { beforeColon: false }],
+    'vue/prefer-template': ['error'],
+    'vue/padding-line-between-blocks': ['error', 'always'],
+    'vue/component-tags-order': [
+      'error',
+      {
+        order: ['template', 'script', 'style']
+      }
+    ],
+    'vue/block-tag-newline': ['error'],
+    'vue/html-button-has-type': [
+      'error',
+      {
+        button: true,
+        submit: true,
+        reset: true
+      }
+    ],
+    'vue/no-empty-component-block': ['error'],
+    'vue/no-multiple-objects-in-class': ['error'],
+    'vue/no-potential-component-option-typo': [
+      'error',
+      {
+        presets: ['all']
+      }
+    ],
+    'vue/no-this-in-before-route-enter': ['error'],
+    'vue/no-useless-mustaches': [
+      'error',
+      {
+        ignoreIncludesComment: false,
+        ignoreStringEscape: false
+      }
+    ],
+    'vue/no-useless-v-bind': [
+      'error',
+      {
+        ignoreIncludesComment: false,
+        ignoreStringEscape: false
+      }
+    ],
+    'vue/prefer-separate-static-class': ['error'],
+    'vue/prefer-true-attribute-shorthand': ['error'],
+    'vue/require-direct-export': [
+      'error',
+      {
+        disallowFunctionalComponentFunction: false
+      }
+    ],
+    'vue/require-name-property': ['error'],
+    'vue/v-for-delimiter-style': ['error', 'in'],
+    'vue/v-on-function-call': [
+      'error',
+      'never',
+      {
+        ignoreIncludesComment: false
+      }
+    ],
+    'vue/no-extra-parens': ['error'],
+    'vue/func-call-spacing': ['error', 'never'],
+
+    // Vue disabled rules
+    'vue/valid-next-tick': 'off',
+    'vue/no-v-html': 'off',
+    'vue/no-v-text-v-html-on-component': 'off',
+    'vue/new-line-between-multi-line-property': 'off',
 
     // this rule, if on, would require explicit return type on the `render` function
     '@typescript-eslint/explicit-function-return-type': 'off',
 
     // in plain CommonJS modules, you can't use `import foo = require('foo')` to pass this rule, so it has to be disabled
     '@typescript-eslint/no-var-requires': 'off',
-
-    // The core 'no-unused-vars' rules (in the eslint:recommended ruleset)
-    // does not work with type definitions
-    'no-unused-vars': 'off',
 
     // allow debugger during development only
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'

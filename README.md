@@ -1,7 +1,5 @@
 # Quasar App (bigbang-test)
 
-A Quasar Project
-
 ## Install the dependencies
 ```bash
 yarn
@@ -9,25 +7,21 @@ yarn
 npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+## Running the project
 ```bash
-quasar dev
+npm run dev
 ```
 
-
-### Lint the files
 ```bash
-yarn lint
-# or
-npm run lint
+npm run server
 ```
 
+### Considerações finais
+Não consegui finalizar tudo que gostaria a tempo, porém fiz o melhor que consegui dentro do prazo de 24h.
 
+O que poderia ser melhorado:
 
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-vite/quasar-config-js).
+- Tratamento de erros; Poderia dar feedbacks ao usuário que algo não funcionou corretamente, como erro 500 da API.
+- Responsividade; Adicionar um menu próprio para mobile para melhor navegação.
+- Notificações; Adicionar um dropdown exibindo as ultimas notificações para o usuário, podendo ter uma badge acima do ícone para indicar a quantida de itens.
+- Animações de loading; Poderia utilizar os skeleton ou QLoading para mostrar ao usuário que os dados estão sendo carregados para que não visualizar dados errados.

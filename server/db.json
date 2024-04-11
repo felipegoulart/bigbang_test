@@ -1,0 +1,40 @@
+{
+  "notifications": [
+    {
+      "title": "Teste",
+      "message": "Mensagem de teste"
+    }
+  ],
+
+  "account-summary": {
+    "filteredByDays": 7,
+    "balance": 304.61,
+    "performance": 124.7,
+    "bussinessAcount": 39882.00,
+    "receipts": 765.88,
+    "gain": 15877.57
+  },
+
+  "transactions-summary": [
+    {
+      "label": "Mercadinho da Cidade",
+      "value": 10.98
+    },
+    {
+      "label": "Tenda Nostra",
+      "value": 26.38
+    },
+    {
+      "label": "Farmácia Um",
+      "value": 43.17
+    },
+    {
+      "label": "Academia Body",
+      "value": 62.12
+    },
+    {
+      "label": "ShopOnline",
+      "value": 135.24
+    }
+  ]
+}

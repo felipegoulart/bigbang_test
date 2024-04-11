@@ -1,6 +1,8 @@
 <template>
-  <q-layout view="hHh lpR fFf">
-    <AppNavbar />
+  <q-layout
+    view="hHh lpR fFf"
+  >
+    <app-navbar />
 
     <!-- <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
